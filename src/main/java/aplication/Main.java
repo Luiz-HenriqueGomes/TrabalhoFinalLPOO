@@ -1,5 +1,24 @@
 package aplication;
 
-public class Main {
+import dao.JPAUtil; // 
 
+public class Main {
+	public static void main(String[] args) {
+		System.out.println("--- Iniciando teste de conexao Hibernate ---");
+
+		try {
+			// Esta linha força o Hibernate a ler o persistence.xml
+			// e gerar as tabelas (devido ao hbm2ddl.auto="update")
+			JPAUtil.getEntityManagerFactory();
+
+			System.out.println(">>> SUCESSO! Conexao estabelecida.");
+			System.out.println(">>> Verifique seu MySQL Workbench para ver as tabelas criadas.");
+
+			// Fecha a fábrica de conexões
+			JPAUtil.close();
+		} catch (Exception e) {
+			System.err.println(">>> FALHA! Erro ao iniciar o Hibernate.");
+			e.printStackTrace();
+		}
+	}
 }

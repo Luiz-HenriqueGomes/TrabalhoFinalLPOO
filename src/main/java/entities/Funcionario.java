@@ -1,6 +1,13 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity //MARCA COMO UMA ENTIDADE JPA E SERÁ A TABELA PRINCIPAL
+@Table(name = "funcionário") 
+
 public class Funcionario extends Pessoa {
+	
+	@Column(name = "matricula_do_funcionário")
 	private String matriculaFuncionario;
 
 	public Funcionario(String nome, String cpf, String email, String celular, String matriculaFuncionario) {
@@ -8,6 +15,11 @@ public class Funcionario extends Pessoa {
 		this.matriculaFuncionario = matriculaFuncionario;
 	}
 
+	public Funcionario() {
+		
+	}
+	
+	
 	public String getMatriculaFuncionario() {
 		return matriculaFuncionario;
 	}

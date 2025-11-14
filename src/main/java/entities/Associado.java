@@ -1,8 +1,18 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity // MARCA COMO UMA ENTIDADE JPA E SERÁ A TABELA PRINCIPAL
+@Table(name = "associado")
+
 public class Associado extends Visitante {
-	private String matriculaAssociado, senha;
-	
+
+	@Column(name = "matricula_do_associado")
+	private String matriculaAssociado;
+
+	@Column(name = "senha")
+	private String senha;
+
 	public Associado(Visitante vis, String matriculaAssociado, String senha) {
 		super(vis.getNome(), vis.getCpf(), vis.getEmail(), vis.getCelular());
 		this.divida = vis.getDivida();
@@ -16,6 +26,10 @@ public class Associado extends Visitante {
 		this.senha = senha;
 	}
 
+	public Associado() {
+
+	}
+
 	public String getMatriculaAssociado() {
 		return matriculaAssociado;
 	}
@@ -23,9 +37,9 @@ public class Associado extends Visitante {
 	public String getSenha() {
 		return senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
 }

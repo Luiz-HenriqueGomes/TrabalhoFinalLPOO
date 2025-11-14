@@ -1,15 +1,23 @@
 package entities;
 
+import jakarta.persistence.*;
 import java.util.List;
 
+@Entity //MARCA COMO UMA ENTIDADE JPA E SERÁ A TABELA PRINCIPAL
+@Table(name = "visitante")  
 public class Visitante extends Pessoa{
+	
+	@Column(name = "divida")
 	protected double divida;
 
 	public Visitante(String nome, String cpf, String email, String celular) {
 		super(nome, cpf, email, celular);
 		this.divida = 0;
 	}
-
+	
+	public Visitante() {
+		
+	}
 	public double getDivida() {
 		return divida;
 	}

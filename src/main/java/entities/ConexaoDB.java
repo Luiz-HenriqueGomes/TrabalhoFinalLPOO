@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConexaoDB {
 	//DEFININDO AS CONEXÕES 
 	
-	private static final String URL = "jdbc:mysql://localhost:3306/bibliotecaDB?useTimezone=true&serverTimezone=UTC";
+	private static final String URL = "jdbc:mysql://localhost:3306/bibliotecadb?useTimezone=true&serverTimezone=UTC";
 	private static final String USER = "root";
 	private static final String PASSWORD = "1234";
 	

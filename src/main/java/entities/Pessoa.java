@@ -1,6 +1,15 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@MappedSuperclass
 public abstract class Pessoa {
+	
+	@Id 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	// AS CLASSES HERDEIRAS TAMBÉM HERDARÃO OS ID'S
+
 	protected String nome, cpf, email, celular;
 
 	public Pessoa(String nome, String cpf, String email, String celular) {
@@ -8,6 +17,10 @@ public abstract class Pessoa {
 		this.cpf = cpf;
 		this.email = email;
 		this.celular = celular;
+	}
+	
+	public Pessoa() {
+		
 	}
 
 	public String getNome() {

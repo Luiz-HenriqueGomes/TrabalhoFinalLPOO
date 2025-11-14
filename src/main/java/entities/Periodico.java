@@ -8,7 +8,9 @@ public class Periodico extends DocFisico {
 		this.area = area;
 		this.subarea = subarea;
 	}
-
+	public Periodico() {
+		
+	}
 	public String getArea() {
 		return area;
 	}
